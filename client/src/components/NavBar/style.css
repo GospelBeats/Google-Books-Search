@@ -1,0 +1,10 @@
+.navbar-light {
+  background-color:gray;
+  height: 34px;
+  line-height: 34px;
+  letter-spacing: 0.1em;
+}
+
+.mr {
+  margin-right: 10px;
+}
