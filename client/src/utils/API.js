@@ -9,14 +9,14 @@ export default {
   },
   // Gets all saved books
   getSavedBooks: function() {
-    return http.get("/api//books");
+    return http.get("/api/books");
   },
   // Deletes the saved book with the given id
   deleteBook: function(id) {
-    return http.delete("/api//books/" + id);
+    return http.delete("/api/books/" + id);
   },
   // Saves an book to the database
   saveBook: function(bookData) {
-    return http.post("/api//books", bookData);
+    return http.post("/api/books", bookData);
   }
 };
