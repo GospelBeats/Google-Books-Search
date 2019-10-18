@@ -1,69 +1,40 @@
 import React from "react";
-import "./style.css";
 import { ListItem } from "../List";
+import { Row, Col } from "../Grid";
+import "./style.css";
 
-const Book = ({
-  title,
-  subtitle,
-  authors,
-  link,
-  description,
-  image,
-  Button
-}) => {
-  const truncateText = (str, length, ending) => {
-    if (str) {
-      if (length == null) {
-        length = 100;
-      }
-      if (ending == null) {
-        ending = "...";
-      }
-      if (str.length > length) {
-        return str.substring(0, length - ending.length) + ending;
-      } else {
-        return str;
-      }
-    }
-    return str;
-  };
-
-  const truncateDescription = truncateText(description, 255, "...");
-
+function Book({ title, subtitle, authors, link, description, image, Button }) {
   return (
     <ListItem>
-      <div className="media-snippet">
-        <article className="media">
-          <figure className="media-left">
-            <p>
-              <img className="image is-128xauto" src={image} alt={title} />
-            </p>
-          </figure>
-          <div className="media-content">
-            <h3 className="heading-title">{title}</h3>
-            {subtitle && <h5 className="heading-subtitle">{subtitle}</h5>}
-            <p className="heading-subtitle">by {authors} (Author)</p>
-            <p className="p-article">{truncateDescription}</p>
-            <div className="d-flex flex-row bd-highlight mb-3">
-              <div className="p-2 bd-highlight">
-                <a
-                  href={link}
-                  className="btn view-button heading-subtitle ml-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View
-                </a>
-              </div>
-              <div className="p-2 bd-highlight">
-                <Button />
-              </div>
-            </div>
+      <Row className="flex-wrap-reverse">
+        <Col size="md-8">
+          <h3 className="font-italic">{title}</h3>
+          {subtitle && <h5 className="font-italic">{subtitle}</h5>}
+        </Col>
+        <Col size="md-4">
+          <div className="btn-container">
+            <a className="btn btn-light" target="_blank" rel="noopener noreferrer" href={link}>
+              View
+            </a>
+            <Button />
           </div>
-        </article>
-      </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col size="md-6">
+          <p className="font-italic small">Written by {authors}</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col size="12 sm-4 md-2">
+          <img className="img-thumbnail img-fluid w-100" src={image} alt={title} />
+        </Col>
+        <Col size="12 sm-8 md-10">
+          <p>{description}</p>
+        </Col>
+      </Row>
     </ListItem>
   );
-};
+}
 
 export default Book;

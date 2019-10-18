@@ -1,12 +1,13 @@
 import React from "react";
-import "./style.css";
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="footer navbar-fixed-bottom text-center heading-subtitle">
-      ALL Rights Reserved
+    <footer>
+      <p className="pull-right mt-3 text-muted">
+        Built with React, Node, Express, MongoDB
+      </p>
     </footer>
   );
-};
+}
 
 export default Footer;
